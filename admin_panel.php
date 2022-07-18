@@ -1,6 +1,7 @@
 <?php
 
     require_once "config/functions.php";
+    require_once "config/config.php";
 
     $titulo = "Panel de Administrador";
     
@@ -21,7 +22,7 @@
             <p>Lorem ipsum dolor sit ame.</p>
             <ul class="nav nav-pills flex-column">
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">Active</a>
+                    <a class="nav-link" href="#">Active</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Link</a>
@@ -37,6 +38,31 @@
         </div>
         <div class="col-sm-9">
             <h2>Listado de todos los Usuarios Registrados</h2>
+            <?php
+                $query = "SELECT id, username, perfil, created_at FROM users";
+                $todosUsuarios = $conexion->query($query);
+            ?>
+            <br>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nombre de Usuario</th>
+                        <th>Perfil</th>
+                        <th>Fecha</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <?php while ($row = $todosUsuarios->fetch_assoc()) { ?>
+                    <tr>
+                        <td><?php echo $row['id']; ?></td>
+                        <td><?php echo $row['username']; ?></td>
+                        <td><?php echo $row['perfil']; ?></td>
+                        <td><?php echo $row['created_at']; ?></td>
+                    </tr>
+                <?php } ?>
+                </tbody>
+            </table>
         </div>
     </div>
 </div>
