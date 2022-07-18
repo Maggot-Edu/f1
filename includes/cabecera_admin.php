@@ -51,7 +51,7 @@
                             <a class="nav-link active" href="bienvenido.php">Perfil</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Panel Administrador</a>
+                            <a class="nav-link" href="admin_panel.php">Panel Administrador</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="logout.php">Cerrar sesión</a>
