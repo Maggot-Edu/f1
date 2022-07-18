@@ -1,18 +1,11 @@
 <?php
 
+    require_once "functions.php";
     $titulo = "Bienvenido";
 
     session_start();
-
     // berificamos si el usuario esta logueado
-    if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
-        header("location: login.php");
-        exit;
-    } elseif ($_SESSION["perfil"] == "admin") {
-        require_once "includes/cabecera_admin.php";
-    } else {
-        require_once "includes/cabecera_user.php";
-    }
+    control_cabecera_usuarios_logueados($titulo);
 
 ?>
 

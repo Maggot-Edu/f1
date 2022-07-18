@@ -1,4 +1,6 @@
 <?php
+    
+    $titulo = "¡Resgitrate!";
     require_once "config/config.php";
 
     // Definimos variables y las inicializamos en valores vacios
