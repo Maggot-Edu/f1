@@ -1,6 +1,5 @@
 <?php
 
-
     session_start();
 
     $titulo = "Base de Datos de la Formula1";
@@ -16,7 +15,6 @@
         require_once "includes/cabecera.php";
     }
 ?>
-
 
 <div class="container mt-5">
     <div class="row">

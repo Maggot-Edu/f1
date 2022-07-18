@@ -1,6 +1,6 @@
 <?php
 
-    require_once "functions.php";
+    require_once "config/functions.php";
     $titulo = "Bienvenido";
 
     session_start();
