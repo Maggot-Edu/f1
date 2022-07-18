@@ -1,5 +1,4 @@
 <?php
-    
     $titulo = "¡Resgitrate!";
     require_once "config/config.php";
 
@@ -194,9 +193,6 @@
                 <div class="col-sm-4"></div>
             </div>
         </div>
-        <div class="mt-5 p-4 bg-dark text-white text-center">
-            <p>Footer</p>
-        </div>
-
-    </body>
-</html>
+<?php
+    require_once "includes/footer.php";
+?>
