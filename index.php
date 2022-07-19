@@ -3,7 +3,8 @@
     session_start();
 
     $titulo = "Base de Datos de la Formula1";
-
+    
+    require_once "includes/cabecera.php";
     // Comprobamos si esta logueado o no
     if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
         if ($_SESSION["perfil"] == "admin") {
@@ -12,8 +13,10 @@
             require_once "includes/cabecera_user.php";
         }
     } else {
-        require_once "includes/cabecera.php";
+        require_once "includes/menu.php";
     }
+
+
 ?>
 
 <div class="container mt-5">
