@@ -2,7 +2,7 @@
 
     require_once "config/functions.php";
     $titulo = "Bienvenido";
-
+    require_once "includes/cabecera.php";
     session_start();
     // berificamos si el usuario esta logueado
     control_cabecera_usuarios_logueados($titulo);

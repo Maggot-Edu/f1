@@ -2,7 +2,7 @@
 
     require_once "config/functions.php";
     require_once "config/config.php";
-
+    require_once "includes/cabecera.php";
     $titulo = "Panel de Administrador";
     
     session_start();

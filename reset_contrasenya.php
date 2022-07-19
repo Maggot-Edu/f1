@@ -1,13 +1,14 @@
 <?php
-
-    require_once "config/functions.php";
     session_start();
+    require_once "config/functions.php";
+    require_once "config/config.php";
+    require_once "includes/cabecera.php";
     $titulo = "Cambio de contraseña";
 
     // berificamos si el usuario esta logueado
     control_cabecera_usuarios_logueados($titulo);
 
-    require_once "config/config.php";
+
 
     // Definimos variables y sincronizamos
     $nuevaContrasenya = $confirmaNuevaContraseña = "";
