@@ -1,6 +1,5 @@
 <?php
 
-
     session_start();
 
     // desmotamos todas las variables de la sesion
