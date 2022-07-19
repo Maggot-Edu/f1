@@ -130,7 +130,10 @@
                 </div>
             </div>
         </div>
-        <?php require_once "includes/menu.php"; ?>
+        <?php 
+             // Se llama al menu 
+            require_once "includes/menu.php"; 
+        ?>
         <div class="container">
             <div class="wrapper row">
                 <div class="col-sm-4"></div>

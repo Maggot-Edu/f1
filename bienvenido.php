@@ -19,7 +19,7 @@
             <h3 class="mt-4">Acciones</h3>
             <ul class="nav nav-pills flex-column">
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">Active</a>
+                    <a class="nav-link" href="#">Active</a>
                 </li>
                 <li class="nav-item">
                     <a href="reset_contrasenya.php" class="nav-link" href="#">Cambia tu contraseña</a>
