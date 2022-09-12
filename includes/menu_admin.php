@@ -15,6 +15,9 @@
                     <a class="nav-link" href="admin_panel.php">Panel Administrador</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="form_insert_piloto.php">Añadir Piloto</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="logout.php">Cerrar sesión</a>
                 </li>
             </ul>

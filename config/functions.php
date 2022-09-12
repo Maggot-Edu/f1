@@ -11,7 +11,7 @@ function control_cabecera_usuarios_logueados ($titulo) {
         require_once "includes/menu_user.php";
     }
 
-    echo $_SESSION["perfil"];
+    //echo $_SESSION["perfil"];
 }
 
 ?>
