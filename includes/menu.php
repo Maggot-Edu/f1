@@ -9,7 +9,7 @@
                     <a class="nav-link" href="index.php">Inicio</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
+                    <a class="nav-link" href="lista_pilotos.php">Pilotos</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="login.php">Iniciar sesión</a>

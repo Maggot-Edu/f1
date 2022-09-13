@@ -41,6 +41,7 @@
             <?php
                 $query = "SELECT id, username, perfil, created_at FROM users";
                 $todosUsuarios = $conexion->query($query);
+                var_dump($todosUsuarios);
             ?>
             <br>
             <table class="table table-striped">
