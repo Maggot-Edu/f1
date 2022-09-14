@@ -49,17 +49,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (empty($NombrePiloto_err)) {
 
-        $sql = "INSERT INTO pilotos (NombrePiloto,FechaNaciPiloto,EdadPiloto,LugarNaciPiloto,NacionalidadPiloto,InstaPiloto,TwitterPiloto,FotoPiloto) VALUES (?,?,?,?,?,?,?,?)";
+        $sql = "INSERT INTO pilotos (NombrePiloto,FechaNaciPiloto,EdadPiloto,LugarNaciPiloto,NacionalidadPiloto,InfoPiloto,InstaPiloto,TwitterPiloto,FotoPiloto) VALUES (?,?,?,?,?,?,?,?,?)";
 
         if ($stmt = mysqli_prepare($conexion, $sql)) {
             
-            mysqli_stmt_bind_param($stmt, "ssisssss", $NombrePiloto, $FechaNaciPiloto, $EdadPiloto, $LugarNaciPiloto, $NacionalidadPiloto, $InstaPiloto, $TwitterPiloto, $FotoPiloto);
+            mysqli_stmt_bind_param($stmt, "ssissssss", $NombrePiloto, $FechaNaciPiloto, $EdadPiloto, $LugarNaciPiloto, $NacionalidadPiloto,$InfoPiloto, $InstaPiloto, $TwitterPiloto, $FotoPiloto);
     
             $NombrePiloto =         $_REQUEST['NombrePiloto'];
             $FechaNaciPiloto =      $_REQUEST['FechaNaci'];
             $EdadPiloto =           $_REQUEST['Edad'];
             $LugarNaciPiloto =      $_REQUEST['LugarNaci'];
             $NacionalidadPiloto =   $_REQUEST['Nacionalidad'];
+            $InfoPiloto =           $_REQUEST['InfoPiloto'];
             $InstaPiloto =          $_REQUEST['Instagram'];
             $TwitterPiloto =        $_REQUEST['Twitter'];
             $FotoPiloto =           $_REQUEST['FotoPiloto'];
@@ -133,12 +134,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <!--<label for="Nacionalidad">Nacionalidad:</label>-->
                     <input type="text" class="form-control mt-3" placeholder="Nacionalidad" name="Nacionalidad">
                 </p>
+                <div class="form-group">
+                    <label for="InfoPiloto">Información breve del piloto</label>
+                    <textarea name="InfoPiloto" id="InfoPiloto" class="form-control" rows="2"></textarea>
+                </div>
                 <p>
-                    <!--<label for="Nacionalidad">Instagram del piloto:</label>-->
+                    <!--<label for="Instagram">Instagram del piloto:</label>-->
                     <input type="text" class="form-control mt-3" placeholder="Url del instagram" name="Instagram">
                 </p>
                 <p>
-                    <!--<label for="Nacionalidad">Twitter del piloto:</label>-->
+                    <!--<label for="Twitter">Twitter del piloto:</label>-->
                     <input type="text" class="form-control mt-3" placeholder="Url del Twitter" name="Twitter">
                 </p>
                 <p>
