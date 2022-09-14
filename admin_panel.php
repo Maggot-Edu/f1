@@ -1,9 +1,9 @@
 <?php
-
+    $titulo = "Panel de Administrador";
     require_once "config/functions.php";
     require_once "config/config.php";
     require_once "includes/cabecera.php";
-    $titulo = "Panel de Administrador";
+
     
     session_start();
 
@@ -41,7 +41,7 @@
             <?php
                 $query = "SELECT id, username, perfil, created_at FROM users";
                 $todosUsuarios = $conexion->query($query);
-                var_dump($todosUsuarios);
+               // var_dump($todosUsuarios);
             ?>
             <br>
             <table class="table table-striped">
