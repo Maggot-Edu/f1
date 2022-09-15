@@ -16,7 +16,7 @@
         require_once "includes/menu.php";
     }
 
-    $consulta = "SELECT NombrePiloto, FotoPiloto, InfoPiloto FROM pilotos";
+    $consulta = "SELECT IdPiloto, NombrePiloto, FotoPiloto, InfoPiloto FROM pilotos ORDER BY NombrePiloto ASC";
     $todosPilotos = array();
     $todosPilotos = $conexion->query($consulta);
 
