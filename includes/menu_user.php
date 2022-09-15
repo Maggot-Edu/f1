@@ -9,6 +9,9 @@
                     <a class="nav-link" href="index.php">Inicio</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="lista_pilotos.php">Pilotos</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link active" href="bienvenido.php">Perfil</a>
                 </li>
                 <li class="nav-item">

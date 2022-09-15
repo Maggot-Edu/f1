@@ -12,6 +12,9 @@
                     <a class="nav-link active" href="bienvenido.php">Perfil</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="lista_pilotos.php">Pilotos</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="admin_panel.php">Panel Administrador</a>
                 </li>
                 <li class="nav-item">
