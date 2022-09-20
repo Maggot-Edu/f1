@@ -12,32 +12,32 @@
 
 
 /////////////////////////////test//////////////////////////////////
-$NombrePiloto = $NombrePiloto_err = "";
+$NombrePilotoCor = $NombrePilotoCor_err = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    if (empty(trim($_POST['NombrePiloto']))) {
-        $NombrePiloto_err = "Ingrese nombre y apellido del piloto";
+    if (empty(trim($_POST['NomCorto']))) {
+        $NombrePilotoCor_err = "Ingrese nombre y apellido del piloto";
     } //elseif (!preg_match('/^[a-zA-Z]+$/', trim($_POST["NombrePiloto"]))){
        // $NombrePiloto_err = "Nombre de piloto solo puede contener letras";
     //} 
     else {
 
-        $consulta = "SELECT IdPiloto FROM `pilotos` WHERE NombrePiloto = ?";
+        $consulta = "SELECT IdPiloto FROM `pilotos` WHERE NomCorto = ?";
 
         if ($stmt = mysqli_prepare($conexion, $consulta)) {
             mysqli_stmt_bind_param($stmt, "s" , $param_NombrePiloto);
 
-            $param_NombrePiloto = trim($_POST['NombrePiloto']);
+            $param_NombrePiloto = trim($_POST['NomCorto']);
 
             if (mysqli_stmt_execute($stmt)) {
 
                 mysqli_stmt_store_result($stmt);
 
                 if (mysqli_stmt_num_rows($stmt) == 1) {
-                    $NombrePiloto_err = "Este Piloto ya esta registrado en la Base de Datos";
+                    $NombrePilotoCor_err = "Este Piloto ya esta registrado en la Base de Datos";
                 } else {
-                    $NombrePiloto = trim($_POST['NombrePiloto']);
+                    $NombrePilotoCor = trim($_POST['NomCorto']);
                 }
             } else {
                 echo "¡Anda! Ha pasado algo raro. Intentalo de nuevo.";
@@ -47,14 +47,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     }
 
-    if (empty($NombrePiloto_err)) {
+    if (empty($NombrePilotoCor_err)) {
 
-        $sql = "INSERT INTO pilotos (NombrePiloto,FechaNaciPiloto,EdadPiloto,LugarNaciPiloto,NacionalidadPiloto,InfoPiloto,InstaPiloto,TwitterPiloto,FotoPiloto) VALUES (?,?,?,?,?,?,?,?,?)";
+        $sql = "INSERT INTO pilotos (NomCorto,NombrePiloto,FechaNaciPiloto,EdadPiloto,LugarNaciPiloto,NacionalidadPiloto,InfoPiloto,InstaPiloto,TwitterPiloto,FotoPiloto) VALUES (?,?,?,?,?,?,?,?,?,?)";
 
         if ($stmt = mysqli_prepare($conexion, $sql)) {
             
-            mysqli_stmt_bind_param($stmt, "ssissssss", $NombrePiloto, $FechaNaciPiloto, $EdadPiloto, $LugarNaciPiloto, $NacionalidadPiloto,$InfoPiloto, $InstaPiloto, $TwitterPiloto, $FotoPiloto);
+            mysqli_stmt_bind_param($stmt, "sssissssss", $NomCorto,$NombrePiloto, $FechaNaciPiloto, $EdadPiloto, $LugarNaciPiloto, $NacionalidadPiloto,$InfoPiloto, $InstaPiloto, $TwitterPiloto, $FotoPiloto);
     
+            $NomCorto =             $_REQUEST['NomCorto'];
             $NombrePiloto =         $_REQUEST['NombrePiloto'];
             $FechaNaciPiloto =      $_REQUEST['FechaNaci'];
             $EdadPiloto =           $_REQUEST['Edad'];
@@ -115,8 +116,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                 <p>
                     <!--<label for="NombrePiloto">Nombre del Piloto:</label>-->
-                    <input type="text" class="form-control mt-3 <?php echo (!empty($NombrePiloto_err)) ? 'is-invalid' : ''; ?>" name="NombrePiloto" placeholder="Nombre Piloto (Nombre Apellido)" value="<?php echo $NombrePiloto; ?>">
-                    <span class="invalid-feedback"><?php echo $NombrePiloto_err; ?></span>
+                    <input type="text" class="form-control mt-3 <?php echo (!empty($NombrePilotoCor_err)) ? 'is-invalid' : ''; ?>" name="NomCorto" placeholder="Nombre Corto ej.(Fer_Alo)" value="<?php echo $NombrePilotoCor; ?>">
+                    <span class="invalid-feedback"><?php echo $NombrePilotoCor_err; ?></span>
+                </p>
+                <p>
+                    <!--<label for="NombrePiloto">Nombre del Piloto:</label>-->
+                    <input type="text" class="form-control mt-3 " name="NombrePiloto" placeholder="Nombre Piloto (Nombre Apellido)">
                 </p>
                 <p>
                     <!--<label for="FechaNaci">Fecha nacimiento:</label>-->
