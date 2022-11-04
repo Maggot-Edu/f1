@@ -6,7 +6,7 @@
     <h3 class="mt-4">Administrar pilotos</h3>
     <ul class="nav nav-pills flex-column">
         <li class="nav-item">
-            <a class="nav-link active" href="form_insert_piloto.php">Añadir piloto</a>
+            <a class="nav-link" href="form_insert_piloto.php">Añadir piloto</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="#">Modificar pilotos</a>
