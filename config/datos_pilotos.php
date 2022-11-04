@@ -22,7 +22,7 @@ switch ($_GET['action']) {
         echo json_encode($respuesta);
         break;
     case 'consultar':
-        $datos = mysqli_query($conexion, 'SELECT NombrePiloto,FechaNaciPiloto,EdadPiloto,NacionalidadPiloto 
+        $datos = mysqli_query($conexion, 'SELECT NomCorto,NombrePiloto,FechaNaciPiloto,EdadPiloto,LugarNaciPiloto,NacionalidadPiloto,InfoPiloto,InstaPiloto,TwitterPiloto,FotoPiloto 
                                           FROM pilotos 
                                           WHERE IdPiloto=$_GET[IdPiloto]');
         $resultado = mysqli_fetch_all($datos, MYSQLI_ASSOC);
@@ -31,9 +31,15 @@ switch ($_GET['action']) {
     case 'modificar':
         $respuesta = mysqli_query($conexion, 'UPDATE pilotos 
                                               SET
+                                              NomCorto="$_POST[NomCorto]",
                                               NombrePiloto="$_POST[NombrePiloto]",
                                               FechaNaciPiloto="$_POST[FechaNaciPiloto]",
-                                              InfoPiloto="$_POST[InfoPiloto]"
+                                              EdadPiloto="$_POST[EdadPiloto]",
+                                              LugarNaciPiloto="$_POST[LugarNaciPiloto]",
+                                              NacionalidadPiloto="$_POST[NacionalidadPiloto]",
+                                              InfoPiloto="$_POST[InfoPiloto]",
+                                              InstaPiloto="$_POST[InstaPiloto]",
+                                              TwitterPiloto="$_POST[TwitterPiloto]"
                                               WHERE IdPiloto=$_GET[IdPiloto]');
         echo json_encode($respuesta);
         break;
