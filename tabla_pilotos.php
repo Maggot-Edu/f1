@@ -49,7 +49,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <input type="hidden" id="IdPiloto">
+                        <!-- <input type="hidden" id="IdPiloto"> -->
                         <div class="from-row">
                             <div class="from-group col-md-12">
                                 <label>Nombre Corto:</label>
@@ -121,6 +121,122 @@
         </div>
     </div>
 </div>
+
+<!-- Script JQuery -->
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        let tabla1 = $("#tablaPilotos").DataTable({
+            "ajax": {
+                url: "datos_piloto.php?accion=mostrar",
+                dataSrc: ""
+            },
+            "columns": [{
+                    "data": "NomCorto"
+                },
+                {
+                    "data": "NombrePiloto"
+                },
+                {
+                    "data": "FechaNaciPiloto"
+                },
+                {
+                    "data": "EdadPiloto"
+                },
+                {
+                    "data": "NacionalidadPiloto"
+                },
+                {
+                    "data": "InfoPiloto"
+                },
+                {
+                    "data": "InstaPiloto"
+                },
+                {
+                    "data": "TwitterPiloto"
+                },
+                {
+                    "data": "TwitterPiloto"
+                },
+                {
+                    "data": "FotoPiloto"
+                },
+                {
+                    "data": null,
+                    "orderable": false
+                },
+                {
+                    "data": null,
+                    "orderable": false
+                }
+            ],
+            "columnDefs": [{
+                    targets: 3,
+                    "defaultContent": "<button class='btn btn-sm btn-primary botonmodificar'>Modificar</button>",
+                    data: null 
+                },
+                {
+                    targets: 4,
+                    "defaultContent": "<button class='btn btn-sm btn-primary botonborrar'>Borrar</button>",
+                    data: null
+                }
+            ],
+            "language": {
+                    "url": "DataTables/spanish.json",
+            },
+        });
+
+        // Evento de los botones
+        $('#botonAgregar').click(function(){
+            $('#confirmarAgregar').show();
+            $('#confirmarModificar').hide();
+            limpiarFormulario();
+            $('#formularioPiloto').modal('show');
+        });
+
+        $('#confirmarAgregar').click(function() {
+            $('#formularioPiloto').modal('hide');
+            let registro = recuperarDatosFormulario();
+            agregarRegistro(registro);
+        });
+
+        $('#confirmarModificar').click(function() {
+            $('#formularioPiloto').modal('hide');
+            let registro = recuperarDatosFormulario();
+            modificarRegistro(registro);
+        });
+
+        $('#tablaPilotos tbody').on('click', 'button.botonmodificar', function() {
+            $('#confirmarAgregar').hide();
+            $('#confirmarModificar').show();
+            let registro = tabla1.row($(this).parent('tr')).data();
+            recuperarRegistro(registro.NomCorto);
+        });
+
+        $('#tablaPilotos tbody').on('click', 'button.botonborrar', function() {
+            if (confirm("¿Realmente quiere borrar este piloto?")) {
+                let registro = tabla1.row($(this).parents('tr')).data();
+                borrarRegistro(registro.NomCorto);
+            }
+        });
+
+        // Funciones 
+
+        function limpiarFormulario() {
+            $('#NomCorto').val('');
+            $('#NombrePiloto').val('');
+            $('#FechaNaciPiloto').val('');
+            $('#EdadPiloto').val('');
+            $('#NacionalidadPiloto').val('');
+            $('#InfoPiloto').val('');
+            $('#InstaPiloto').val('');
+            $('#TwitterPiloto').val('');
+            $('#TwitterPiloto').val('');
+            $('#FotoPiloto').val('');
+        }
+    });
+</script>
+
 <?php
     require_once "includes/footer.php";
 ?>
