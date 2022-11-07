@@ -18,7 +18,7 @@ switch ($_GET['action']) {
         break;
     case 'borrar':
         $respuesta = mysqli_query($conexion, 'DELETE FROM pilotos 
-                                              WHERE IdPiloto=$_GET[IdPiloto]');
+                                              WHERE NomCorto=$_GET[NomCorto]');
         echo json_encode($respuesta);
         break;
     case 'consultar':
@@ -39,7 +39,8 @@ switch ($_GET['action']) {
                                               NacionalidadPiloto="$_POST[NacionalidadPiloto]",
                                               InfoPiloto="$_POST[InfoPiloto]",
                                               InstaPiloto="$_POST[InstaPiloto]",
-                                              TwitterPiloto="$_POST[TwitterPiloto]"
+                                              TwitterPiloto="$_POST[TwitterPiloto]",
+                                              FotoPiloto="$_POST[FotoPiloto]"
                                               WHERE IdPiloto=$_GET[IdPiloto]');
         echo json_encode($respuesta);
         break;
