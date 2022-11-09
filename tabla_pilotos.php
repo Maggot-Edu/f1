@@ -2,6 +2,7 @@
 
     session_start();
 
+
     $titulo = "Nombre de la pagina";
     require_once "includes/cabecera.php";
     // Comprobamos si esta logueado o no
@@ -23,7 +24,7 @@
             <table class="table table-striped table-bordered table-hover" id="tablaPilotos">
                 <thead>
                     <tr>
-                        <td>NomCorto</td>
+                        <td>IdPiloto</td>
                         <td>NombrePiloto</td>
                         <td>FechaNaciPiloto</td>
                         <td>EdadPiloto</td>
@@ -53,7 +54,7 @@
                         <div class="from-row">
                             <div class="from-group col-md-12">
                                 <label>Nombre Corto:</label>
-                                <input type="text" id="NomCorto" class="from-control" placeholder="">
+                                <input type="text" id="IdPiloto" class="from-control" placeholder="">
                             </div>
                         </div>
                         <div class="from-row">
@@ -132,7 +133,7 @@
                 dataSrc: ""
             },
             "columns": [{
-                    "data": "NomCorto"
+                    "data": "IdPiloto"
                 },
                 {
                     "data": "NombrePiloto"
@@ -144,6 +145,9 @@
                     "data": "EdadPiloto"
                 },
                 {
+                    "data": "LugarNaciPiloto"
+                },
+                {
                     "data": "NacionalidadPiloto"
                 },
                 {
@@ -151,9 +155,6 @@
                 },
                 {
                     "data": "InstaPiloto"
-                },
-                {
-                    "data": "TwitterPiloto"
                 },
                 {
                     "data": "TwitterPiloto"
@@ -223,16 +224,99 @@
         // Funciones 
 
         function limpiarFormulario() {
-            $('#NomCorto').val('');
+            $('#IdPiloto').val('');
             $('#NombrePiloto').val('');
             $('#FechaNaciPiloto').val('');
             $('#EdadPiloto').val('');
+            $('#LugarNaciPiloto').val('');
             $('#NacionalidadPiloto').val('');
             $('#InfoPiloto').val('');
             $('#InstaPiloto').val('');
             $('#TwitterPiloto').val('');
-            $('#TwitterPiloto').val('');
             $('#FotoPiloto').val('');
+        }
+
+        function recuperarDatosFormulario() {
+            let registro = {
+                IdPiloto:           $('#IdPiloto').val(),
+                NombrePiloto:       $('#NombrePiloto').val(),
+                FechaNaciPiloto:    $('#FechaNaciPiloto').val(),
+                EdadPiloto:         $('#EdadPiloto').val(),
+                LugarNaciPiloto:    $('#LugarNaciPiloto').val(),
+                NacionalidadPiloto: $('#NacionalidadPiloto').val(),
+                InfoPiloto:         $('#InfoPiloto').val(),
+                InstaPiloto:        $('#InstaPiloto').val(),
+                TwitterPiloto:      $('#TwitterPiloto').val(),
+                FotoPiloto:         $('#FotoPiloto').val()
+            },
+            return registro;
+        }
+
+        // Funcion para comunicarse con el servidor via ajax
+        function agregarRegistro(registro) {
+            $.ajax({
+                type:       'POST',
+                url:        'datos_pilotos.php?accion=insertar',
+                dato:       'registro',
+                success:    function(msg) {
+                    tabla1.ajax.reload();
+                },
+                error:      function() {
+                    alert("Hay problemas");
+                }
+            });
+        }
+
+        function borrarRegistro(IdPiloto) {
+            $.ajax({
+                type:       'GET',
+                url:        'datos_pilotos.php?accion=borrar&IdPiloto=' + IdPiloto,
+                data:       '',
+                success:    function(msg) {
+                    tabla1.ajax.reload();
+                },
+                error:      function() {
+                    alert("Hay problemas");
+                }
+            });
+        }
+
+        function recuperarRegistro(IdPiloto) {
+            $.ajax({
+                type:       'GET',
+                url:        'datos_pilotos.php?accion=consultar&IdPiloto=' + IdPiloto,
+                data:       '',
+                success:    function(datos) {
+                    $('#IdPiloto').val(datos[0].IdPiloto);
+                    $('#NombrePiloto').val(datos[0].NombrePiloto);
+                    $('#FechaNaciPiloto').val(datos[0].FechaNaciPiloto);
+                    $('#EdadPiloto').val(datos[0].EdadPiloto);
+                    $('#LugarNaciPiloto').val(datos[0].LugarNaciPiloto);
+                    $('#NacionalidadPiloto').val(datos[0].NacionalidadPiloto);
+                    $('#InfoPiloto').val(datos[0].InfoPiloto);
+                    $('#InstaPiloto').val(datos[0].InstaPiloto);
+                    $('#TwitterPiloto').val(datos[0].TwitterPiloto);
+                    $('#FotoPiloto').val(datos[0].FotoPiloto);
+                    $('#formularioPiloto').modal('show');
+                },
+                error:      function() {
+                    alert("Hay problemas");
+                }
+            });
+        }
+
+        function modificarRegistro(registro) {
+            $.ajax({
+                type:       'POST',
+                url:        'datos_pilotos.php?accion=modificar&IdPiloto=' + registro.IdPiloto,
+                data:       registro,
+                success:    function(msg) {
+                    tabla1.ajax.reload();
+                },
+                error:      function() {
+                    alert("Hay problemas");
+                }
+            });
         }
     });
 </script>

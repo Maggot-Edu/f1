@@ -48,7 +48,7 @@
                       <div class="card-body">
                         <h5 class="card-title"><?php echo $row['NombrePiloto'] ?></h5>
                         <p class="card-text"><?php echo $row['InfoPiloto'] ?></p>
-                        <a href="fucha_piloto.php?piloto=<?php echo $row['IdPiloto'] ?>&nombre=<?php echo $row['NombrePiloto'] ?>" class="btn btn-primary" target="_blank">Ver Piloto</a>
+                        <a href="ficha_piloto.php?piloto=<?php echo $row['IdPiloto'] ?>&nombre=<?php echo $row['NombrePiloto'] ?>" class="btn btn-primary" target="_blank">Ver Piloto</a>
                       </div>
                     </div>
                 </div>
