@@ -9,7 +9,7 @@
             <a class="nav-link" href="form_insert_piloto.php">Añadir piloto</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="tabla_pilotos.php">Modificar pilotos</a>
+            <a class="nav-link" href="#">Modificar pilotos</a>
         </li>
         <li class="nav-item">
             <a href="reset_contrasenya.php" class="nav-link" href="#">Cambia tu contraseña</a>

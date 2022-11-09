@@ -5,7 +5,8 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-        <script src="assets/js/jquery-3.6.0.min.js"></script>
+        <script src="assets/js/jquery-3.6.0.min.js" type="text/javascript"></script>
+        <script src="assets/js/jquery.dataTables.min.js" type="text/javascript"></script>
         <script src="assets/js/bootstrap.min.js"></script>
         <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
         <link href="assets/css/dataTables.dataTables.min.css" rel="stylesheet">
