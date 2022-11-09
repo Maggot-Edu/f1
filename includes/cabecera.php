@@ -11,6 +11,7 @@
         <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
         <link href="assets/css/dataTables.dataTables.min.css" rel="stylesheet">
         <script src="assets/js/dataTables.dataTables.min.js"></script>
+        <script src="js/popper.min.js"></script>
     </head>
     <body>
         <a href="#" id="toTopBtn" class="cd-top text-replace js-cd-top cd-top--is-visible cd-top--fade-out" data-abc="true"></a>
